@@ -61,8 +61,17 @@ public class TrainNN  implements TrainNNImpl {
         Net net = Dnn.readNetFromTorch(path);
         if(!(net.empty())) {
             outliers = net.getUnconnectedOutLayers();
-            net.getLayerNames();
+            List<String> layer_names = net.getLayerNames();
+            for(String layer_name : layer_names)
+            {
+                if(!layer_name.isEmpty())
+                {
+                    System.out.println(layer_name);
+                }
+                
+            }
         }
         return 0;
     }
+
 }
