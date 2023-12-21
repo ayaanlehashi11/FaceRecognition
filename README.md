@@ -1,4 +1,4 @@
-## Opencv Java ⚠️ Ongoing project
+## Opencv Java Ongoing project
 
 ### Demo
 
