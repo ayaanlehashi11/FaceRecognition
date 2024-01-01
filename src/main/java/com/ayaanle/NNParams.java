@@ -11,22 +11,18 @@ import org.opencv.ml.TrainData;
 
 
 public class NNParams {
-
-   // Net net;
-    NNParams np;
-
-
-    protected NNParams() {
+    protected NNParams(METRICS met , OPT opt)
+    {
 
     }
-
-    public enum LOSS
+    // metrics
+    public enum METRICS
     {
         MSE,
         MSA,
         Accuracy,
     }
-
+    //optimizers
     public enum OPT
     {
         Adaboost,
@@ -34,6 +30,11 @@ public class NNParams {
         RMSProp,
     }
 
+    enum ALG
+    {
+        KNEAREST,
+        CLASSIFIER,
+    }
 }
 
 class Train extends TrainData implements NNParamsBuilder
@@ -84,7 +85,13 @@ class Train extends TrainData implements NNParamsBuilder
     @Override
     public void log_weights()
     {
-
+        Mat [] mat = getWeights();
+        for(int i = 1;i < mat.length;i++)
+        {
+            System.out.println("dim: " +mat[i].dims());
+            System.out.println("rows: " + mat[i].rows());
+            System.out.println("col: "+ mat[i].cols());
+        }
     }
 
 }
