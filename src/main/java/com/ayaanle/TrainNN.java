@@ -59,7 +59,6 @@ public class TrainNN  implements TrainNNImpl {
     {
         if (model_exists(path)) {
             Net net = Dnn.readNetFromONNX(path);
-            net.
             if (!(net.empty())) {
                 outliers = net.getUnconnectedOutLayers();
                 List<String> layer_names = net.getLayerNames();
